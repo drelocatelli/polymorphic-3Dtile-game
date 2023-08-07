@@ -9,14 +9,21 @@
     --floor-stroke: #808080;
 }
 
+.player-container {
+    width: 36px;
+    height: 82px;
+    position: relative;
+    outline: 1px solid red;
+    outline-offset: 2px;
+    z-index: 100;
+}
+
 .player {
-    width: 20px;
-    height: 20px;
+    width: inherit;
+    height: inherit;
     top: 0;
     left: 0;
-    background-color: red;
-    position: absolute;
-    z-index: 20;
+    background-color: blue;
 }
 
 html {

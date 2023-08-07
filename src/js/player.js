@@ -7,10 +7,10 @@ class Player {
     }
 
     initialize() {
-        this.$element.css({
+        this.$container.css({
             top: parseInt($('.room div[data-door]').css('top')[0]) - 10,
             left: parseInt($('.room div[data-door]').css('left')) + 5,
-            transform: `translate(96%, 473%)`,
+            transform: `translate(50%, 45%)`,
         });
         $('.room').append(this.$container);
     }
@@ -31,8 +31,8 @@ $(document).ready(function () {
         const tileHeight = $(this).height();
         const roomOffset = $('.room').offset();
 
-        const currentPlayerTop = parseInt(player.$element.css('top'));
-        const currentPlayerLeft = parseInt(player.$element.css('left'));
+        const currentPlayerTop = parseInt(player.$container.css('top'));
+        const currentPlayerLeft = parseInt(player.$container.css('left'));
 
         const dx = tileOffset.left + tileWidth / 2 - 35 - roomOffset.left - currentPlayerLeft;
         const dy = tileOffset.top + tileHeight / 2 - 101 - roomOffset.top - currentPlayerTop;
@@ -41,7 +41,7 @@ $(document).ready(function () {
         const duration = 1500 + distance * 5;
 
         // Store the animation in the currentAnimation variable
-        currentAnimation = player.$element.animate(
+        currentAnimation = player.$container.animate(
             {
                 'top': tileOffset.top + tileHeight / 2 - 101 - roomOffset.top,
                 'left': tileOffset.left + tileWidth / 2 - 35 - roomOffset.left,
@@ -54,7 +54,7 @@ $(document).ready(function () {
                 start: function () {
                     movementCount++;
                     if (movementCount == 1) {
-                        player.$element.css('z-index', 1000003);
+                        player.$container.css('z-index', 1000003);
                     }
                     $('.row').each(function (index) {
                         if ($(this).attr('data-door')) {
